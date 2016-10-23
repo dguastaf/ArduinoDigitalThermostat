@@ -10,19 +10,17 @@ const int NUM_COLS = 16;
 
 float celsiusToFahrenheit(float tempCelsius);
 
-void printToScreen(float tempCelsius) {
-  float tempInFahrenheit = celsiusToFahrenheit(tempCelsius);
-
-  Serial.print("Temp in fahrenheit: ");
-  Serial.println(tempInFahrenheit);
+void printMsg(String message) {
+  Serial.print("Printing: ");
+  Serial.println(message);
   
   //Setup unique to my board's wiring
-  LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+  LiquidCrystal lcd(10, 9, 8, 4, 3, 2);
   lcd.begin(NUM_COLS, NUM_ROWS);
+  lcd.clear();
+  lcd.setCursor(0,0);
   
-  lcd.print("Temp: ");
-  lcd.print(tempInFahrenheit);
-  lcd.print(" F");
+  lcd.print(message);
 }
 
 float celsiusToFahrenheit(float celsius) {

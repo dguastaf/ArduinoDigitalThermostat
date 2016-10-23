@@ -3,7 +3,7 @@
 const int SENSOR_PIN = A0;
 const float VOLTAGE_MAX = 1024.0;
 const float VOLTAGE_MULT = 5.0;
-const float TEMP_OFFSET = 0.475;
+const float TEMP_OFFSET = 0.5;
 
 const float CELSIUS_MULT = 1.8;
 const float CELSIUS_OFFSET = 32;
@@ -24,13 +24,15 @@ float getTempFromSensor() {
   int readingTotal = 0;
  
   // Collect multiple readings and keep track of the sum
+  Serial.print("Readings: ");
   for (int i = 0; i < NUM_READINGS; i++) {
       int reading = analogRead(SENSOR_PIN);
-      Serial.print("Read");
-      Serial.println(reading);
+      
+      Serial.print(reading);
+      Serial.print(" ");
       readingTotal += reading;
   }
-  
+  Serial.println();
   //Compute the average here
   int averageReading = readingTotal / NUM_READINGS;
   Serial.print("Average reading: ");

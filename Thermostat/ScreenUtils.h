@@ -1,1 +1,1 @@
-void printToScreen(float);
+void printMsg(String message);
