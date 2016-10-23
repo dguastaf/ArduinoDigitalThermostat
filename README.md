@@ -1,4 +1,4 @@
-# ArduinoDigitalThermostat
+# Arduino Thermostat & Heater Controller
 
 My goal for this project is to create a WiFi connected thermostat and heater controller.
 
